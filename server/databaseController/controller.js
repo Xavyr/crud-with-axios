@@ -69,7 +69,7 @@ const dataController = {
 		console.log('req.body of updateOne', req.body);
 		//here I pass req.body.thing1 and thing2 as an object to be found; the next argument is what about the record I want to update
 		Entity.findOneAndUpdate({ 'thing1': req.body.thing1, 'thing2': req.body.thing2 }, { $set: { 'thing1': req.body.newValueForThing1 }}, function (err, content) {
-			if (err) console.log('fuck up in updateOne', err);
+			if (err) console.log('error updateOne', err);
 			console.log(content);
 		});
 		next();
