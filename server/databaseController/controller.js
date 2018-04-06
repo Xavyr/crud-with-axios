@@ -49,7 +49,6 @@ const dataController = {
 				res.statusCode = 418;
 				next();
 			}
-			console.log('findOne content', content);
 			res.locals.databaseFindings = content;
 			next();
 		});
