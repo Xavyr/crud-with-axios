@@ -26,7 +26,7 @@ const dataController = {
 		//pass the object to Collection.create implicitly setting values to the corresponding properties a la ES6
 		Entity.create({thing1, thing2}, function (err, content) {
 			if (err) {
-				console.log('Fucked up in the insert of controller');
+				console.log(' up in the insert of controller');
 			} else {
 				res.locals.databaseFindings = content; //this returns the entry that was just logged
 				next();
