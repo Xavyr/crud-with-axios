@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, './../client')));
 
 //responds to the findAll button-- dumping all contents into the data div
 app.get('/findAll', databaseController.findAll, (req, res, next) => {
-	res.send(res.locals.databaseFindings);
+  res.send(res.locals.databaseFindings);
 });
 
 //responds to the insertOne record
