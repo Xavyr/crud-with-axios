@@ -60,7 +60,7 @@ const dataController = {
 		let thing2Value = req.body.thing2;
 		//Here we grab both values out of the req.body and pass the explicit object to the Collection.remove
 		Entity.remove({thing1: thing1Value, thing2: thing2Value}, function (err, content) {
-			if (err) console.log('fuck up in removeOne', err);
+			if (err) console.log('error in removeOne', err);
 			res.statusCode = 200;
 			next();
 		});
