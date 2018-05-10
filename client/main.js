@@ -5,8 +5,7 @@ $(document).ready(function () {
 //action for the findOne button
 	document.getElementById('find-one').addEventListener("click", function (event){
 		console.log('axios');
-		let thing1 = document.getElementById('thing1').value;
-		let thing2 = document.getElementById('thing2').value;
+
 
 		axios({
 			method: 'post',
@@ -16,13 +15,11 @@ $(document).ready(function () {
 				thing2: thing2
 			}
 		}).then(function(response) {
-			let p = document.createElement('p');
-			p.innerHTML = `thing1 is ${response.data.thing1} and thing2 is ${response.data.thing2}`;
-			document.getElementById('data').appendChild(p);
+		  "what goes here?"
 		});
 
 
-		event.preventDefault();
+		//event.preventDefault();
 	});
 
 //action for the findAll button
@@ -54,10 +51,9 @@ $(document).ready(function () {
 		let thing2 = document.getElementById('thing2').value;
 
 		axios.delete('/removeOne',{
-			data: {thing1, thing2},
+			//data: {thing1, thing2},
 		});
 
-		event.preventDefault();
 	});
 
 //action for the insert-one button
@@ -68,9 +64,6 @@ $(document).ready(function () {
 			thing1, thing2
 		})
 			.then(function (response) {
-				let p = document.createElement('p');
-				p.innerHTML = `thing 1 is ${response.data.thing1} and thing2 is ${response.data.thing2}`;
-				document.getElementById('data').appendChild(p);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -82,9 +75,6 @@ $(document).ready(function () {
 
 //action for the update-one button
 	document.getElementById('update-one').addEventListener("click", function (event){
-		let thing1 = document.getElementById('thing1').value;
-		let thing2 = document.getElementById('thing2').value;
-		let newValueForThing1 = document.getElementById('newValue').value;
 
 
 		axios({

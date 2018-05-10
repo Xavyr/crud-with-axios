@@ -1,26 +1,12 @@
 const express = require('express')
 const app = express()
 const path = require('path');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 
-//importing the databaseController - acts as middleware
-databaseController = require('./databaseController/Controller.js');
 
-//need to parse the body of a request
-app.use(bodyParser.json());
-
-//need to use cookies
-app.use(cookieParser())
 
 //check for cookies every request
 app.use(function (req, res, next) {
-	res.cookie('xavyr_cookie', 'yeah', {expire: 360000 + Date.now()});
-	console.log('Cookies: ', req.cookies);
-	if (req.cookies.xavyr_cookie) {
-		console.log('xavyr cookie already exists');
-	}
-	next(); // <-- important!
+	SET COOKIES HERE MAN
 });
 
 
@@ -29,7 +15,7 @@ app.use(express.static(path.join(__dirname, './../client')));
 //app.get('/', (req, res) => res.send('inconsequential because of express.static'))
 
 //responds to the findAll button-- dumping all contents into the data div
-app.get('/findAll', databaseController.findAll, (req, res, next) => {
+app.get('/findAll',  (req, res, next) => {
   res.send(res.locals.databaseFindings);
 });
 
@@ -39,7 +25,7 @@ app.post('/insertOne', databaseController.insertOne, (req, res, next) => {
 });
 
 //queries for one record out of the db
-app.post('/findOne', databaseController.findOne, (req, res, next) => {
+app.post('/findOne', databaseController, (req, res, next) => {
 	console.log('db', res.locals.databaseFindings);
 	res.send(res.locals.databaseFindings);
 });
@@ -55,4 +41,4 @@ app.put('/updateOne', databaseController.updateOne, (req, res, next) => {
 });
 
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3001, () => console.log('Example app listening on port 3000!'))
