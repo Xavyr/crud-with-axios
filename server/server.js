@@ -17,10 +17,10 @@ app.use(cookieParser())
 app.use(function (req, res, next) {
   res.cookie('xavyr_cookie', 'yeah', {expire: 360000 + Date.now()});
   console.log('Cookies: ', req.cookies);
- if (req.cookies.xavyr_cookie) {
- console.log('xavyr cookie already exists');
-}
-next(); // <-- important!
+  if (req.cookies.xavyr_cookie) {
+    console.log('xavyr cookie already exists');
+  }
+  next(); // <-- important!
 })
 
 
@@ -35,23 +35,23 @@ app.get('/findAll', databaseController.findAll, (req, res, next) => {
 
 //responds to the insertOne record
 app.post('/insertOne', databaseController.insertOne, (req, res, next) => {
-	res.send(res.locals.databaseFindings);
+  res.send(res.locals.databaseFindings);
 });
 
 //queries for one record out of the db
 app.post('/findOne', databaseController.findOne, (req, res, next) => {
-	console.log('db', res.locals.databaseFindings);
-	res.send(res.locals.databaseFindings);
+  console.log('db', res.locals.databaseFindings);
+  res.send(res.locals.databaseFindings);
 });
 
 //removes one record from the db
 app.delete('/removeOne', databaseController.removeOne, (req, res, next) => {
-	res.end();
+  res.end();
 });
 
 //updates one selected record from the database
 app.put('/updateOne', databaseController.updateOne, (req, res, next) => {
-	res.send('updateOne via put');
+  res.send('updateOne via put');
 });
 
 
