@@ -15,13 +15,13 @@ app.use(cookieParser())
 
 //check for cookies every request
 app.use(function (req, res, next) {
-	res.cookie('xavyr_cookie', 'yeah', {expire: 360000 + Date.now()});
-	console.log('Cookies: ', req.cookies);
-	if (req.cookies.xavyr_cookie) {
-		console.log('xavyr cookie already exists');
-	}
-	next(); // <-- important!
-});
+res.cookie('xavyr_cookie', 'yeah', {expire: 360000 + Date.now()});
+console.log('Cookies: ', req.cookies);
+if (req.cookies.xavyr_cookie) {
+console.log('xavyr cookie already exists');
+}
+next(); // <-- important!
+})
 
 
 //We always render this page, no matter what- the rest of the routes just comprises the API
